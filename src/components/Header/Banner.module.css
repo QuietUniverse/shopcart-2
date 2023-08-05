@@ -1,0 +1,59 @@
+.banner {
+  width: 100%;
+  padding: 0.8rem 9rem;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  fill: var(--color-white);
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media only screen and (max-width: 75em) {
+  .banner {
+    padding: 0.8rem 7rem;
+  }
+}
+
+@media only screen and (max-width: 56.25em) {
+  .banner {
+    padding: 0.8rem 3rem;
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  .banner {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+.phone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  transition: all 0.2s ease-out;
+  cursor: pointer;
+}
+
+.phone svg {
+  height: 2rem;
+  width: 2rem;
+}
+
+.phone:hover,
+.phone:focus,
+.phone:active,
+.dropdown:hover {
+  color: #dbffdb;
+  fill: #dbffdb;
+}
+
+.locale {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}

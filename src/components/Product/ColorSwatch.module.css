@@ -1,0 +1,43 @@
+.palette {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 3.5rem;
+  width: 3.5rem;
+  background-color: transparent;
+  border-radius: 50%;
+  filter: brightness(1);
+  transition: all 0.3s ease-out;
+}
+
+.palette:hover {
+  cursor: pointer;
+  filter: brightness(0.6);
+}
+
+.palette--active {
+  padding: 0.3rem;
+  border-radius: 50%;
+  border: 0.2rem solid var(--color-grey-dark-2);
+}
+
+@media only screen and (max-width: 56.25em) {
+  .palette {
+    height: 4rem;
+    width: 4rem;
+  }
+}
+
+.layout {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  height: 50%;
+  width: 100%;
+}
+
+.primary {
+  justify-self: flex-end;
+  align-items: flex-end;
+}

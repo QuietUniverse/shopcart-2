@@ -1,0 +1,13 @@
+.layout {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.filled {
+  fill: var(--color-primary-light);
+}
+
+.empty {
+  fill: var(--color-grey-light-2);
+}

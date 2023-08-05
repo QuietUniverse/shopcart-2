@@ -1,0 +1,22 @@
+.layout {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  color: var(--color-grey-dark-2);
+  font-weight: 500;
+  font-size: 1.4rem;
+  width: max-content;
+}
+
+.layout li a {
+  transition: all 0.2s ease-out;
+}
+
+.layout li:hover {
+  color: var(--color-primary-light);
+}
+
+.end {
+  color: var(--color-grey-dark-1);
+}

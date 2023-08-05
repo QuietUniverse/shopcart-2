@@ -1,0 +1,18 @@
+.layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.2s ease-out;
+}
+
+.layout:hover {
+  cursor: pointer;
+}
+
+.layout svg {
+  height: 1rem;
+  width: 1rem;
+  transform: rotate(180deg);
+  margin-top: -0.2rem;
+}

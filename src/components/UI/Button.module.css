@@ -1,0 +1,24 @@
+.btn {
+  background-color: var(--color-white);
+  border-radius: 3rem;
+  color: var(--color-grey-dark-1);
+  border: 0.2rem solid var(--color-grey-dark-1);
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  padding: 1rem 2rem;
+  transition: all 0.3s ease-out;
+  text-transform: capitalize;
+}
+
+.btn:hover {
+  background-color: var(--color-grey-dark-1);
+  color: var(--color-white);
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 56.25em) {
+  .btn {
+    padding: 0.8rem 1.5rem;
+  }
+}

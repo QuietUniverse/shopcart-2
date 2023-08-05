@@ -1,0 +1,29 @@
+.grid {
+  display: grid;
+  grid-template-columns: 50% 1fr;
+  grid-template-rows: 35rem 37rem;
+  width: 100%;
+  row-gap: 3rem;
+  column-gap: 5rem;
+  height: 100%;
+}
+
+@media only screen and (max-width: 75em) {
+  .grid {
+    grid-template-rows: 33rem 36rem;
+  }
+}
+
+@media only screen and (max-width: 56.25em) {
+  .grid {
+    grid-template-rows: 33rem 70%;
+    grid-template-columns: 45% 1fr;
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  .grid {
+    grid-template-rows: 33rem min-content 70%;
+    grid-template-columns: 100%;
+  }
+}
