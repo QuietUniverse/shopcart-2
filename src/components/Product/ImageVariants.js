@@ -1,9 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useCallback, useEffect } from "react";
 import useHttp from "../../hooks/use-http";
+import { searchActions } from "../../store/slice/search";
+import { bestBuyAPIKey } from "../../utils/helper";
 
 import styles from "./ImageVariants.module.css";
-import { searchActions } from "../../store/slice/search";
 
 function ImageVariants() {
   const product = useSelector((state) => state.search.selectedProduct);
@@ -16,7 +17,7 @@ function ImageVariants() {
     function (variantSKU, timeout = undefined) {
       fetchVariant(
         {
-          url: `https://api.bestbuy.com/v1/products(sku=${variantSKU})?apiKey=${process.env.REACT_APP_BESTBUY_API_KEY}&pageSize=1&format=json`,
+          url: `https://api.bestbuy.com/v1/products(sku=${variantSKU})?apiKey=${bestBuyAPIKey}&pageSize=1&format=json`,
         },
         (data) => {
           dispatch(searchActions.setSelectedProductVariant({ data }));

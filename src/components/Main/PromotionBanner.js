@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import useHttp from "../../hooks/use-http";
+import { pixabayAPIKey } from "../../utils/helper";
 
 import Button from "../UI/Button";
 
@@ -27,7 +28,7 @@ function PromotionBanner() {
 
       fetchCategoryImage(
         {
-          url: `https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_API_KEY}&q=${categoryQuery}&colors=transparent&safesearch=true&per_page=3`,
+          url: `https://pixabay.com/api/?key=${pixabayAPIKey}&q=${categoryQuery}&colors=transparent&safesearch=true&per_page=3`,
         },
         (data) => {
           setImageURL(data.hits[0].webformatURL);

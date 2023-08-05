@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import useHttp from "../../hooks/use-http";
 import { searchActions } from "../../store/slice/search";
+import { bestBuyAPIKey } from "../../utils/helper";
 
 import DetailContainer from "../Product/DetailContainer";
 import ImageLarge from "../Product/ImageLarge";
@@ -37,7 +38,7 @@ function ProductDetails() {
       if (!selectedProduct) {
         fetchProduct(
           {
-            url: `https://api.bestbuy.com/v1/products(sku=${params})?apiKey=${process.env.REACT_APP_BESTBUY_API_KEY}&pageSize=1&format=json`,
+            url: `https://api.bestbuy.com/v1/products(sku=${params})?apiKey=${bestBuyAPIKey}&pageSize=1&format=json`,
           },
           handleDispatch
         );

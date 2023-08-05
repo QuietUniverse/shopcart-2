@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { searchActions } from "../../store/slice/search";
 import { useDispatch } from "react-redux";
 import useHttp from "../../hooks/use-http";
+import { bestBuyAPIKey } from "../../utils/helper";
 
 import styles from "./Search.module.css";
 
@@ -25,7 +26,7 @@ function Search() {
 
     fetchSearchResults(
       {
-        url: `https://api.bestbuy.com/v1/products((search=${query}))?apiKey=${process.env.REACT_APP_BESTBUY_API_KEY}&facet=categoryPath.name&format=json&pageSize=20`,
+        url: `https://api.bestbuy.com/v1/products((search=${query}))?apiKey=${bestBuyAPIKey}&facet=categoryPath.name&format=json&pageSize=20`,
       },
       displaySearchResults
     );
