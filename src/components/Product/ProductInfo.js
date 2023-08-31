@@ -1,21 +1,33 @@
-import { useMemo } from "react";
-import { useSelector } from "react-redux";
+import { useMemo, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { cartActions } from "../../store/slice/cart";
 
 import StarRating from "../UI/StarRating";
 import ColorSwatch from "./ColorSwatch";
 import Button from "./../UI/Button";
+import Cart from "./Cart";
+import Checkout from "./Checkout";
 
 import styles from "./ProductInfo.module.css";
-import Quantity from "./Quantity";
 
 function ProductInfo() {
+  const [cartIsOpen, setCartIsOpen] = useState(false);
+  const [checkoutIsOpen, setCheckoutIsOpen] = useState(false);
   const product = useSelector((state) => state.search.selectedProduct);
   const allVariants = useSelector((state) => state.search.productVariants);
+
+  const dispatch = useDispatch();
 
   const EMI = useMemo(
     () => product.price / 6 + product.price * 0.6 * 0.15,
     [product.price]
   );
+
+  function addToCart() {
+    setCheckoutIsOpen(false);
+    setCartIsOpen(true);
+    dispatch(cartActions.addItemToCart(product));
+  }
 
   return (
     <div className={styles.layout}>
@@ -48,12 +60,11 @@ function ProductInfo() {
 
       <div className={styles.quantity__container}>
         <div className={styles.quantity__main}>
-          <Quantity stock={product.stock} />
           <div className={styles.stock}>
             <p>
-              Only{" "}
+              Only
               <span className={styles[`stock-highlight`]}>
-                {`${product.stock} items `}
+                {` ${product.stock} items `}
               </span>
               Left!
             </p>
@@ -65,7 +76,15 @@ function ProductInfo() {
           <Button
             text="Add to cart"
             className={styles[`quantity__btn-secondary`]}
+            onClick={addToCart}
           />
+          {cartIsOpen && (
+            <Cart
+              setCartIsOpen={setCartIsOpen}
+              setCheckoutIsOpen={setCheckoutIsOpen}
+            />
+          )}
+          {checkoutIsOpen && <Checkout setCheckoutIsOpen={setCheckoutIsOpen} />}
         </div>
       </div>
 

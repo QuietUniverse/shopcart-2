@@ -42,6 +42,10 @@
 }
 
 @media only screen and (max-width: 56.25em) {
+  .img {
+    max-height: 28%;
+    max-width: 100%;
+  }
 }
 
 .img img {
@@ -52,6 +56,7 @@
 
 @media only screen and (max-width: 56.25em) {
   .img img {
-    height: 70%;
+    height: 100%;
+    width: auto;
   }
 }

@@ -9,6 +9,7 @@ const searchSlice = createSlice({
     selectedProduct: undefined,
     productVariants: [],
     isLoading: false,
+    activeFilters: { type: "", filters: [] },
   },
   reducers: {
     setProducts(state, action) {
@@ -193,6 +194,63 @@ const searchSlice = createSlice({
 
     setIsLoading(state, action) {
       state.isLoading = action.payload.isLoading;
+    },
+
+    setFilter(state, action) {
+      const filters = state.activeFilters.filters;
+      const filterValues = filters.map((filter) => filter.value);
+      const selectedFilter = action.payload.selectedFilter;
+
+      if (selectedFilter === "category") {
+        if (filterValues.includes(action.payload.value)) {
+          state.activeFilters.filters = filters.filter(
+            (f) => f.value !== action.payload.value
+          );
+        } else {
+          state.activeFilters.filters = [
+            ...filters,
+            { value: action.payload.value, name: action.payload.name },
+          ];
+        }
+      } else {
+        if (filterValues.includes(action.payload.value)) {
+          state.activeFilters.filters = [];
+        } else {
+          state.activeFilters.filters = [
+            { value: action.payload.value, name: action.payload.name },
+          ];
+        }
+      }
+    },
+
+    applyFilterCategory(state, action) {
+      state.activeFilters.type = action.payload;
+
+      if (action.payload === "category") {
+        const filters = state.activeFilters.filters;
+        const filterValues = filters.map((filter) => filter.value);
+        // Filter out any other filter types other than category
+        if (
+          filterValues.includes("ascending") ||
+          filterValues.includes("descending")
+        ) {
+          state.activeFilters.filters = filters.filter(
+            (f) => f.value !== "ascending" && f.value !== "descending"
+          );
+        }
+      }
+    },
+
+    resetFilterType(state, action) {
+      state.activeFilters.type = "";
+    },
+
+    resetFilters(state, action) {
+      state.activeFilters = { type: "", filters: [] };
+    },
+
+    setSortedProducts(state, action) {
+      state.products = action.payload;
     },
   },
 });

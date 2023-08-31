@@ -21,12 +21,13 @@ function Search() {
 
     // Handling input query
     dispatch(searchActions.setQuery({ query }));
+    dispatch(searchActions.resetFilters());
     setQuery("");
     searchRef.current.blur();
 
     fetchSearchResults(
       {
-        url: `https://api.bestbuy.com/v1/products((search=${query}))?apiKey=${bestBuyAPIKey}&facet=categoryPath.name&format=json&pageSize=20`,
+        url: `https://api.bestbuy.com/v1/products((search=${query}))?apiKey=${bestBuyAPIKey}&facet=categoryPath.name&format=json&pageSize=30`,
       },
       displaySearchResults
     );

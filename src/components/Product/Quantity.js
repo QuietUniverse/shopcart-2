@@ -1,20 +1,24 @@
-import { useState } from "react";
+import { useDispatch } from "react-redux";
+
+import { cartActions } from "../../store/slice/cart";
 
 import styles from "./ProductInfo.module.css";
 
-function Quantity({ stock }) {
-  const [quantity, setQuantity] = useState(1);
+function Quantity({ stock, className, currentQuantity, sku }) {
+  const dispatch = useDispatch();
 
   function handleReduceQuantity() {
-    setQuantity((prev) => (prev > 1 ? --prev : 1));
+    if (currentQuantity - 1 < 1) return;
+    dispatch(cartActions.setQuantityCount(sku, --currentQuantity));
   }
 
   function handleIncreaseQuantity() {
-    setQuantity((prev) => (prev < stock ? ++prev : stock));
+    if (currentQuantity + 1 > stock) return;
+    dispatch(cartActions.setQuantityCount(sku, ++currentQuantity));
   }
 
   return (
-    <div className={styles.quantity}>
+    <div className={`${styles.quantity} ${className}`}>
       <button
         type="button"
         className={styles[`quantity-btn`]}
@@ -24,7 +28,7 @@ function Quantity({ stock }) {
           <use href="/sprite.svg#minus" />
         </svg>
       </button>
-      <span>{quantity}</span>
+      <span>{currentQuantity}</span>
       <button
         type="button"
         className={styles[`quantity-btn`]}

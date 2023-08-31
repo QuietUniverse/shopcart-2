@@ -15,4 +15,5 @@
   width: 1rem;
   transform: rotate(180deg);
   margin-top: -0.2rem;
+  transition: all 0.3s ease-out;
 }

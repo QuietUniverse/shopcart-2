@@ -4,10 +4,11 @@ function Button({
   text = "Action here",
   className = "",
   onClick = function () {},
+  type = "button",
 }) {
   return (
     <button
-      type="button"
+      type={type}
       className={`${styles.btn} ${className}`}
       onClick={onClick}
     >

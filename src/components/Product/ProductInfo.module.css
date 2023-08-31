@@ -168,6 +168,19 @@
   transition: all 0.2s ease-out;
 }
 
+.quantity__btn-secondary {
+  padding: 0.8rem 1.5rem;
+  width: 35%;
+  border: 0.2rem solid var(--color-primary);
+  background-color: var(--color-white);
+  color: var(--color-primary);
+}
+
+.quantity__btn-secondary:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
 .stock {
   display: flex;
   flex-direction: column;
@@ -203,19 +216,6 @@
 .quantity__btn-primary:hover {
   background-color: var(--color-white);
   color: var(--color-primary);
-}
-
-.quantity__btn-secondary {
-  padding: 0.8rem 1.5rem;
-  width: 35%;
-  border: 0.2rem solid var(--color-primary);
-  background-color: var(--color-white);
-  color: var(--color-primary);
-}
-
-.quantity__btn-secondary:hover {
-  background-color: var(--color-primary);
-  color: var(--color-white);
 }
 
 .delivery {

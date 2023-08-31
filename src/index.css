@@ -59,6 +59,10 @@ body {
   overflow-x: hidden;
 }
 
+#root {
+  position: relative;
+}
+
 a {
   text-decoration: none;
   font-family: inherit;

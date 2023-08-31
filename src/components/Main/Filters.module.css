@@ -4,6 +4,7 @@
   flex-wrap: wrap-reverse;
   gap: 2rem;
   margin-top: 5rem;
+  position: relative;
 }
 
 @media only screen and (max-width: 37.5em) {
@@ -33,4 +34,56 @@
   padding: 0.8rem 1.5rem;
   border-radius: 3rem;
   margin-left: auto;
+  transition: all 0.3s ease-out;
+}
+
+.sort:hover {
+  cursor: pointer;
+  border: solid 0.2rem var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.open {
+  border: solid 0.2rem var(--color-primary-light);
+}
+
+.open svg {
+  transform: rotate(0deg);
+  margin-top: 0.3rem;
+}
+
+.list {
+  background-color: var(--color-grey-light-2);
+  position: absolute;
+  right: 0;
+  top: 4.5rem;
+  border-radius: 0.8rem;
+}
+
+@media only screen and (max-width: 37.5em) {
+  .list {
+    right: 1.5rem;
+  }
+}
+
+.list option {
+  padding: 0.8rem 1.5rem;
+  transition: all 0.3s ease-out;
+}
+
+.list option:hover,
+.active {
+  background-color: var(--color-white);
+  color: var(--color-primary-light);
+  cursor: pointer;
+}
+
+.window-layout {
+  background-color: var(--color-grey-light-2);
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  height: 100%;
+  width: 100%;
 }

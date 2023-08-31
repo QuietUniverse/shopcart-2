@@ -1,0 +1,16 @@
+.close {
+  background-color: var(--color-grey-light-2);
+  color: var(--color-grey-dark-1);
+  border-radius: 50%;
+  text-align: center;
+  font-size: 2.6rem;
+  height: 3rem;
+  width: 3rem;
+  transition: all 0.3s ease-out;
+}
+
+.close:hover {
+  color: var(--color-grey-light-2);
+  background-color: var(--color-grey-dark-1);
+  cursor: pointer;
+}

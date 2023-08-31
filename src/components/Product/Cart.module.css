@@ -1,0 +1,195 @@
+.layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 3;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(116, 116, 116, 0.6);
+  -webkit-backdrop-filter: blur(3rem);
+  backdrop-filter: blur(3rem);
+  top: 0;
+  left: 0;
+}
+
+.window {
+  background-color: var(--color-white);
+  height: 85%;
+  width: 60%;
+  border-radius: 3rem;
+  padding: 3rem;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: min-content 1fr min-content;
+}
+
+@media only screen and (max-width: 56.25em) {
+  .window {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+}
+
+.cart-message {
+  color: var(--color-grey-light-2);
+  font-weight: 700;
+  font-size: 2.2rem;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-icon {
+  height: 2rem;
+  width: 2rem;
+  fill: var(--color-primary-light);
+}
+
+.list {
+  display: flex;
+  align-items: space-between;
+  justify-content: flex-start;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  gap: 5rem;
+  align-items: center;
+  padding: 0 3rem 2rem;
+  border-bottom: solid 0.1rem var(--color-grey-light-2);
+}
+
+.item:not(:first-child) {
+  padding: 2rem 3rem;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.8rem;
+  height: 100%;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.pb {
+  padding-bottom: 1.5rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.image {
+  width: 3rem;
+  height: auto;
+}
+
+.name {
+  font-weight: 700;
+}
+
+.desc {
+  color: var(--color-grey-dark-2);
+  font-size: 1.4rem;
+}
+
+.delete {
+  border-radius: 0.3rem;
+  padding: 0.3rem;
+  font-size: 1.3rem;
+  border: none;
+  box-shadow: 0 0 0 0.2rem var(--color-secondary-dark);
+  width: max-content;
+  align-self: flex-end;
+  margin-top: 1.5rem;
+
+  background-color: var(--color-white);
+  color: var(--color-secondary-dark);
+}
+
+.delete:hover {
+  background-color: var(--color-secondary-dark);
+  color: var(--color-white);
+}
+
+.quantity {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.quantity p {
+  font-size: 1.4rem;
+  color: var(--color-primary);
+}
+
+.quantity__component {
+  height: 3rem;
+  width: 12rem;
+  padding: 0.6rem 0.8rem;
+  font-size: 1.4rem;
+}
+
+.quantity button svg {
+  height: 1rem;
+  width: 1rem;
+}
+
+.price {
+  font-weight: 700;
+  color: var(--color-primary-light);
+  align-self: flex-end;
+  margin-top: 0.8rem;
+}
+
+.checkout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.5rem;
+}
+
+.heading {
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 2.4rem;
+}
+
+.total-price {
+  font-weight: 700;
+  font-size: 2.2rem;
+  color: var(--color-primary-light);
+  padding-bottom: 0.3rem;
+  border-radius: 0.3rem;
+  border-bottom: solid 0.2rem var(--color-primary-light);
+}
+
+.checkout-btn {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  box-shadow: 0 0 0 0.2rem var(--color-secondary-dark);
+  background-color: var(--color-secondary-dark);
+  color: var(--color-white);
+}
+
+.checkout-btn:hover {
+  background-color: var(--color-secondary);
+  color: var(--color-secondary-dark);
+}
